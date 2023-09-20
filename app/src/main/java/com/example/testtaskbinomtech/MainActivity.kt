@@ -26,6 +26,7 @@ import de.hdodenhof.circleimageview.CircleImageView
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
+import org.osmdroid.views.CustomZoomButtonsController
 import org.osmdroid.views.overlay.Marker
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
@@ -82,6 +83,7 @@ class MainActivity : AppCompatActivity() {
             Configuration.getInstance().userAgentValue = "$appName / $appVersion"
             mapview.setTileSource(TileSourceFactory.DEFAULT_TILE_SOURCE)
             mapview.controller.setZoom(15.0)
+            mapview.zoomController.setVisibility(CustomZoomButtonsController.Visibility.NEVER)
 
             if (ContextCompat.checkSelfPermission(this@MainActivity, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED
